@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-list</title>
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+            <h1><%=kindofday%></h1>
+        </div>
+        <div class="box2">
+            <div id="cont">
+               <h2>My To-do-list</h2>
+            </div>
+
+                <ul>
+                    <% for(var i=0; i<listWork.length; i++){ %>
+                            <form action="/delete" method="post">
+                            <div class="conti" >
+                                <input type="checkbox" onChange="this.form.submit()" value="<%= listWork[i].name %>" name="check" id="check">
+                                <li id="listi"><%= listWork[i].name %></li>
+                            </div>
+                            <input type="hidden" name="Listname" value="<%= kindofday %>">
+                        </form>
+                        <% } %>
+                </ul>
+                <form action="/" method="post">   
+                    <input type="text" name="listItem" placeholder="New Item" autocomplete="off">
+                    <button class="button-71" type="submit" name="button" value=<%= kindofday %>>+</button>
+                </form>
+        </div>
+   </div>
+</body>
+</html>
